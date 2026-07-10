@@ -1,24 +1,33 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
+import { SiteHeader } from "@/components/site-header";
+import { SiteFooter } from "@/components/site-footer";
+import { Hero } from "@/components/hero";
+import { FeaturedProperties } from "@/components/featured-properties";
+import { About } from "@/components/about";
+import { Team } from "@/components/team";
+import { Contact } from "@/components/contact";
+import { defaultSearch, type SearchState } from "@/lib/property-filters";
 
-// No head() here: the home route inherits title/description/og/twitter from
-// __root.tsx, and ships no og:image so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
+  const [search, setSearch] = useState<SearchState>(defaultSearch);
+  const patch = (p: Partial<SearchState>) => setSearch((s) => ({ ...s, ...p }));
+
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background">
+      <SiteHeader />
+      <main>
+        <Hero onSearch={patch} />
+        <FeaturedProperties search={search} onChange={patch} />
+        <About />
+        <Team />
+        <Contact />
+      </main>
+      <SiteFooter />
     </div>
   );
 }
