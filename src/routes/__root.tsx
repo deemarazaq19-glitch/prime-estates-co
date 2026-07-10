@@ -89,10 +89,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:description",
         content:
-          "Discover curated luxury properties and work with expert agents dedicated to your next chapter.",
+          "Prime Estates helps you find, buy, and sell exceptional homes with a trusted team of experienced local agents.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Prime Estates — Luxury Homes & Real Estate" },
+      { name: "twitter:description", content: "Prime Estates helps you find, buy, and sell exceptional homes with a trusted team of experienced local agents." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/50e9998e-1b9e-4914-9d2c-f8b7016b5c4a" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/50e9998e-1b9e-4914-9d2c-f8b7016b5c4a" },
     ],
     links: [
       {
