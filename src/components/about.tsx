@@ -1,4 +1,4 @@
-import { Award, HandshakeIcon, ShieldCheck } from "lucide-react";
+import { Award, Handshake, ShieldCheck } from "lucide-react";
 
 const pillars = [
   {
@@ -12,7 +12,7 @@ const pillars = [
     body: "Our team consistently ranks in the top 1% for closed luxury transactions.",
   },
   {
-    icon: HandshakeIcon,
+    icon: Handshake,
     title: "Concierge from offer to keys",
     body: "Inspections, staging, financing, and moving day — we coordinate the whole arc.",
   },
