@@ -98,7 +98,7 @@ export function Contact() {
               <Button
                 type="submit"
                 disabled={submitting}
-                className="bg-primary text-primary-foreground hover:bg-primary/90"
+                className="w-full bg-primary text-primary-foreground transition-transform duration-200 hover:bg-primary/90 hover:scale-[1.02] sm:w-auto"
               >
                 {submitting ? "Sending…" : "Send inquiry"}
               </Button>
