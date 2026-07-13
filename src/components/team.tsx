@@ -18,10 +18,11 @@ export function Team() {
           </p>
         </div>
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {agents.map((a) => (
+          {agents.map((a, i) => (
             <div
               key={a.id}
-              className="overflow-hidden rounded-xl bg-background text-foreground"
+              className="group overflow-hidden rounded-xl bg-background text-foreground shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl animate-fade-up"
+              style={{ animationDelay: `${i * 90}ms` }}
             >
               <div className="aspect-[4/5] overflow-hidden">
                 <img
@@ -30,7 +31,7 @@ export function Team() {
                   loading="lazy"
                   width={800}
                   height={1000}
-                  className="h-full w-full object-cover"
+                  className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.05]"
                 />
               </div>
               <div className="p-6">
