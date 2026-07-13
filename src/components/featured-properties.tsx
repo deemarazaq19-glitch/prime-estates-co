@@ -33,6 +33,7 @@ type Props = {
 
 export function FeaturedProperties({ search, onChange }: Props) {
   const filtered = useMemo(() => applyFilters(properties, search), [search]);
+  const filterKey = JSON.stringify(search);
 
   function toggleType(t: PropertyType) {
     const has = search.types.includes(t);
@@ -116,7 +117,7 @@ export function FeaturedProperties({ search, onChange }: Props) {
         </div>
 
         {filtered.length === 0 ? (
-          <div className="mt-10 rounded-xl border border-dashed border-border bg-card p-12 text-center">
+          <div className="mt-10 rounded-xl border border-dashed border-border bg-card p-12 text-center animate-fade-in-soft">
             <p className="text-muted-foreground">
               No properties match your filters yet.
             </p>
@@ -131,9 +132,18 @@ export function FeaturedProperties({ search, onChange }: Props) {
             </Button>
           </div>
         ) : (
-          <div className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {filtered.map((p) => (
-              <PropertyCard key={p.id} property={p} />
+          <div
+            key={filterKey}
+            className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
+          >
+            {filtered.map((p, i) => (
+              <div
+                key={p.id}
+                className="animate-fade-up"
+                style={{ animationDelay: `${Math.min(i * 70, 500)}ms` }}
+              >
+                <PropertyCard property={p} />
+              </div>
             ))}
           </div>
         )}
