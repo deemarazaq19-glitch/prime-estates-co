@@ -43,14 +43,14 @@ export function Hero({ onSearch }: Props) {
       />
       <div className="absolute inset-0 -z-10 bg-gradient-to-b from-primary/70 via-primary/55 to-primary/85" />
       <div className="mx-auto max-w-7xl px-4 pb-24 pt-24 sm:px-6 sm:pt-32 lg:px-8 lg:pb-32 lg:pt-40">
-        <div className="max-w-3xl">
+        <div className="max-w-3xl animate-fade-up">
           <span className="inline-block rounded-full border border-gold/50 bg-gold/10 px-3 py-1 text-xs font-medium uppercase tracking-widest text-gold">
             Curated by Prime Estates
           </span>
-          <h1 className="mt-6 font-display text-4xl font-semibold leading-[1.05] text-primary-foreground sm:text-5xl lg:text-6xl">
+          <h1 className="mt-6 font-display text-3xl font-semibold leading-[1.08] text-primary-foreground sm:text-5xl lg:text-6xl">
             Homes with a sense of place.
           </h1>
-          <p className="mt-5 max-w-xl text-base text-primary-foreground/80 sm:text-lg">
+          <p className="mt-5 max-w-xl text-sm text-primary-foreground/80 sm:text-base lg:text-lg">
             Discover a hand-picked collection of residences and work with agents
             who know each street, courtyard and coastline.
           </p>
@@ -58,9 +58,9 @@ export function Hero({ onSearch }: Props) {
 
         <form
           onSubmit={submit}
-          className="mt-10 grid gap-3 rounded-2xl border border-white/15 bg-background/95 p-4 shadow-2xl backdrop-blur sm:mt-14 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-end md:gap-3"
+          className="mt-8 grid gap-3 rounded-2xl border border-white/15 bg-background/95 p-4 shadow-2xl backdrop-blur animate-fade-up [animation-delay:150ms] sm:mt-14 md:grid-cols-[minmax(0,1.4fr)_minmax(0,1fr)_minmax(0,1fr)_auto] md:items-end md:gap-3"
         >
-          <div className="min-w-0">
+          <div className="min-w-0 border-b border-border pb-2 md:border-b-0 md:pb-0">
             <label className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Location
             </label>
@@ -68,16 +68,16 @@ export function Hero({ onSearch }: Props) {
               value={location}
               onChange={(e) => setLocation(e.target.value)}
               placeholder="City, neighborhood…"
-              className="mt-1 h-11 border-0 bg-transparent px-0 text-base shadow-none focus-visible:ring-0"
+              className="mt-1 h-10 border-0 bg-transparent px-0 text-base shadow-none focus-visible:ring-0"
               maxLength={80}
             />
           </div>
-          <div>
+          <div className="min-w-0">
             <label className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Max price
             </label>
             <Select value={maxPrice} onValueChange={setMaxPrice}>
-              <SelectTrigger className="mt-1 h-11 border-0 bg-transparent px-0 text-base shadow-none focus:ring-0">
+              <SelectTrigger className="mt-1 h-10 w-full border-0 bg-transparent px-0 text-base shadow-none focus:ring-0">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -89,12 +89,12 @@ export function Hero({ onSearch }: Props) {
               </SelectContent>
             </Select>
           </div>
-          <div>
+          <div className="min-w-0">
             <label className="block text-xs font-semibold uppercase tracking-wide text-muted-foreground">
               Bedrooms
             </label>
             <Select value={beds} onValueChange={setBeds}>
-              <SelectTrigger className="mt-1 h-11 border-0 bg-transparent px-0 text-base shadow-none focus:ring-0">
+              <SelectTrigger className="mt-1 h-10 w-full border-0 bg-transparent px-0 text-base shadow-none focus:ring-0">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
@@ -108,7 +108,7 @@ export function Hero({ onSearch }: Props) {
           </div>
           <Button
             type="submit"
-            className="h-11 bg-primary text-primary-foreground hover:bg-primary/90"
+            className="h-11 w-full bg-primary text-primary-foreground transition-transform duration-200 hover:bg-primary/90 hover:scale-[1.02] md:w-auto"
           >
             <Search className="mr-2 h-4 w-4" />
             Search
