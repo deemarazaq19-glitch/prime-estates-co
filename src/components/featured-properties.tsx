@@ -3,6 +3,8 @@ import { properties } from "@/data/properties";
 import type { PropertyType } from "@/data/properties";
 import { applyFilters, type SearchState } from "@/lib/property-filters";
 import { PropertyCard } from "@/components/property-card";
+import { useReveal } from "@/hooks/use-reveal";
+import type { Property } from "@/data/properties";
 import { Button } from "@/components/ui/button";
 import {
   Select,
@@ -137,17 +139,29 @@ export function FeaturedProperties({ search, onChange }: Props) {
             className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
           >
             {filtered.map((p, i) => (
-              <div
-                key={p.id}
-                className="animate-fade-up"
-                style={{ animationDelay: `${Math.min(i * 70, 500)}ms` }}
-              >
-                <PropertyCard property={p} />
-              </div>
+              <RevealCard key={p.id} property={p} index={i} />
             ))}
           </div>
         )}
       </div>
     </section>
+  );
+}
+
+function RevealCard({ property, index }: { property: Property; index: number }) {
+  const { ref, visible } = useReveal<HTMLDivElement>();
+  return (
+    <div
+      ref={ref}
+      style={{
+        transitionDelay: `${Math.min(index * 90, 600)}ms`,
+      }}
+      className={
+        "transform-gpu transition-all duration-[700ms] ease-out will-change-transform " +
+        (visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-6")
+      }
+    >
+      <PropertyCard property={property} />
+    </div>
   );
 }
