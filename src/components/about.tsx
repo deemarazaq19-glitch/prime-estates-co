@@ -44,10 +44,11 @@ export function About() {
             </p>
           </div>
           <div className="grid gap-4">
-            {pillars.map((p) => (
+            {pillars.map((p, i) => (
               <div
                 key={p.title}
-                className="flex gap-4 rounded-xl border border-border bg-card p-6"
+                className="flex gap-4 rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg hover:border-gold/50 animate-fade-up"
+                style={{ animationDelay: `${i * 100}ms` }}
               >
                 <span className="grid h-12 w-12 shrink-0 place-items-center rounded-lg bg-gold/15 text-gold">
                   <p.icon className="h-5 w-5" />

@@ -33,7 +33,7 @@ export function SiteHeader() {
               {l.label}
             </a>
           ))}
-          <Button asChild className="bg-gold text-gold-foreground hover:bg-gold/90">
+          <Button asChild className="bg-gold text-gold-foreground transition-transform duration-200 hover:bg-gold/90 hover:scale-[1.03]">
             <a href="#contact">Book a Viewing</a>
           </Button>
         </nav>

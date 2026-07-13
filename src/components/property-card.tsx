@@ -8,7 +8,7 @@ export function PropertyCard({ property }: { property: Property }) {
     <Link
       to="/properties/$id"
       params={{ id: property.id }}
-      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-xl"
+      className="group flex flex-col overflow-hidden rounded-xl border border-border bg-card shadow-sm transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-2xl hover:border-gold/60"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
         <img
@@ -17,7 +17,7 @@ export function PropertyCard({ property }: { property: Property }) {
           loading="lazy"
           width={1200}
           height={800}
-          className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-[600ms] ease-out group-hover:scale-[1.08]"
         />
         <span className="absolute left-3 top-3 rounded-full bg-background/95 px-3 py-1 text-xs font-semibold uppercase tracking-wide text-primary">
           {property.type}
